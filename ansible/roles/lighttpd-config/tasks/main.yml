@@ -1,0 +1,26 @@
+---
+# tasks file for lighttpd-config
+
+- name: "Instala lighttpd"
+  apt:
+    update_cache: yes
+    name: lighttpd
+
+- name: "Inicializa lighttpd"
+  command: "sudo systemctl start lighttpd"
+
+- name: "Habilita lighttpd"
+  command: "sudo systemctl enable lighttpd"
+
+- name: "Cria diretorio"
+  file:
+    path: "/meu_diretorio_web/"
+    state: directory
+
+- name: "Cria arquivo index"
+  command: "echo 'Jose Igor De Farias Gomes' /meu_diretorio_web/index.html"
+
+- name: "Copia arquivo de configuracao lighttpd"
+  template:
+    src: templates/lighttpd.conf
+    dest: /etc/lighttpd/

@@ -1,0 +1,19 @@
+---
+# tasks file for serverTools
+- name: Set a hostname
+  hostname:
+    name: "{{ hostname }}"
+  notify:
+    - addInHostsFile
+
+- name: "Role: softwares uteis para administracao do servidor"
+  apt:
+    update_cache: yes
+    name:
+      - vim
+      - iftop
+      - zip
+      - wget
+      - curl
+      - python3
+    state: latest

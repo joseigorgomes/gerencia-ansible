@@ -1,0 +1,9 @@
+---
+# handlers file for serverTools
+- name: "addInHostsFile"
+  lineinfile:
+    path: /etc/hosts
+    line: "10.0.2.15 {{ hostname }}"
+
+
+

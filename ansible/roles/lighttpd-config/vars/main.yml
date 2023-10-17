@@ -1,0 +1,4 @@
+---
+# vars file for lighttpd-config
+lighttpd_dir: "/meu_diretorio_web/"
+lighttpd_port: "8080"

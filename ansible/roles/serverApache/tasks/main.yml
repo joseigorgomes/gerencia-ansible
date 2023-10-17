@@ -1,0 +1,24 @@
+---
+# tasks file for serverApache
+
+- name: "Atualizar cache de pacotes"
+  apt:
+    update_cache: yes
+
+- name: "Instalar Apache"
+  apt:
+    name: apache2
+    state: present
+
+- name: "Iniciar o serviço Apache e habilitá-lo na inicialização"
+  service:
+    name: apache2
+    state: started
+    enabled: yes
+
+- name: "Substituir o arquivo HTML padrão"
+  copy:
+   src: files/arquivo.html
+   dest: /var/www/html/index.html
+  notify: restartApache
+
